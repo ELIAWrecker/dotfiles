@@ -1,170 +1,199 @@
-#IMPORTS
+# Imports and Autostart Hook
 from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 import os
 import subprocess
+import colors
 
-
-
-#STARTUP
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
 
 
+# A function for hide/show all the windows in a group
+@lazy.function
+def minimize_all(qtile):
+    for win in qtile.current_group.windows:
+        if hasattr(win, "toggle_minimize"):
+            win.toggle_minimize()
 
-
-
-
-
+# Key Bindings
 mod = "mod4"
-terminal = "kitty"
-
+terminal = "alacritty"
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
+    # Move windows
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
+    Key([mod, "shift"], "m", minimize_all(), desc="Toggle hide/show all windows on current group"),
+    # Grow windows
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    # Toggle split/unsplit
+    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
+    # Layout control
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    Key([mod], "h", lazy.spawn("roficlip"), desc='clipboard'),
+    Key([mod], "s", lazy.spawn("flameshot gui"), desc='Screenshot'),
+    
 ]
+# GROUPS
+groups = []
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
-# Add key bindings to switch VTs in Wayland.
-# We can't check qtile.core.name in default config as it is loaded before qtile is started
-# We therefore defer the check until the key binding is run by using .when(func=...)
-for vt in range(1, 8):
-    keys.append(
-        Key(
-            ["control", "mod1"],
-            f"f{vt}",
-            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
-            desc=f"Switch to VT{vt}",
-        )
-    )
+#group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+group_labels = ["ALACRITY", "BRAVE", "BURP", "FIREFOX", "SPOTIFY", "DISCORD", "VPN", "VID", "GFX",]
+#group_labels = ["", "", "", "", "", "", "", "", "",]
 
+group_layouts = ["monadtall", "monadtall", "tile", "tile", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 
-groups = [Group(i) for i in "123456789"]
-
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
+ 
 for i in groups:
     keys.extend(
         [
-            # mod + group number = switch to group
+            # mod1 + letter of group = switch to group
             Key(
                 [mod],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
-            # mod + shift + group number = switch to & move focused window to group
+            # mod1 + shift + letter of group = move focused window to group
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                lazy.window.togroup(i.name, switch_group=False),
+                desc="Move focused window to group {}".format(i.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod + shift + group number = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 
+
+colors = colors.DoomOne
+layout_theme = {"border_width": 0,
+                "margin": 0,
+                "border_focus": colors[8],
+                "border_normal": colors[0]
+                }
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    #layout.Bsp(**layout_theme),
+    #layout.Floating(**layout_theme)
+    #layout.RatioTile(**layout_theme),
+    #layout.VerticalTile(**layout_theme),
+    #layout.Matrix(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    #layout.MonadWide(**layout_theme),
+    layout.Tile(
+         shift_windows=True,
+         border_width = 0,
+         margin = 0,
+         ratio = 0.335,
+         ),
+    layout.Max(
+         border_width = 0,
+         margin = 0,
+         ),
+    #layout.Stack(**layout_theme, num_stacks=2),
+    #layout.Columns(**layout_theme),
+    #layout.TreeTab(
+    #     font = "Ubuntu Bold",
+    #     fontsize = 11,
+    #     border_width = 0,
+    #     bg_color = colors[0],
+    #     active_bg = colors[8],
+    #     active_fg = colors[2],
+    #     inactive_bg = colors[1],
+    #     inactive_fg = colors[0],
+    #     padding_left = 8,
+    #     padding_x = 8,
+    #     padding_y = 6,
+    #     sections = ["ONE", "TWO", "THREE"],
+    #     section_fontsize = 10,
+    #     section_fg = colors[7],
+    #     section_top = 15,
+    #     section_bottom = 15,
+    #     level_shift = 8,
+    #     vspace = 3,
+    #     panel_width = 240
+    #     ),
+    #layout.Zoomy(**layout_theme),
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
+    font="JetBrainsMono Nerd Font",
+    fontsize=11,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
-
 screens = [
     Screen(
         bottom=bar.Bar(
             [
+                widget.GroupBox(
+                 margin_y = 5,
+                 margin_x = 5,
+                 padding_y = 0,
+                 padding_x = 1,
+                 borderwidth = 3,
+                 active = colors[8],
+                 inactive = colors[1],
+                 rounded = False,
+                 highlight_color = colors[2],
+                 highlight_method = "line",
+                 this_current_screen_border = colors[7],
+                 this_screen_border = colors [4],
+                 other_current_screen_border = colors[7],
+                 other_screen_border = colors[4],
+ ),
+                widget.TextBox(
+                 text = '|',
+                 foreground = colors[1],
+                 padding = 2,
+                 fontsize = 14
+                 ),
                 widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
+                widget.TextBox(
+                 text = '|',
+                 foreground = colors[1],
+                 padding = 2,
+                 fontsize = 14
+                 ),
                 widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Systray(padding = 3),
+                widget.Spacer(length = 8),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-        # By default we handle these events delayed to already improve performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-        # x11_drag_polling_rate = 60,
     ),
 ]
+
 
 # Drag floating layouts.
 mouse = [

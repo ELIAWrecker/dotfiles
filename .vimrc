@@ -58,16 +58,6 @@ set incsearch
 " Add numbers to each line on the left-hand side.
 set number
 
-" Highlight cursor line underneath the cursor horizontally.
-set cursorline
-highlight CursorLine cterm=NONE ctermbg=238 guibg=#3a3a3a
-
-
-" Highlight cursor line underneath the cursor vertically.
-set cursorcolumn
-highlight CursorColumn cterm=NONE ctermbg=238 guibg=#3a3a3a
-
-
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
