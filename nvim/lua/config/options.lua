@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
+vim.g.lazyvim_picker = "fzf"
 
 vim.opt.encoding = "utf-8"
+
 vim.opt.fileencoding = "utf-8"
 
 vim.opt.number = true
