@@ -1,0 +1,13 @@
+config:
+  fallback-icon: ""
+  multi-pane-icon: " "
+  show-name: false
+
+icons:
+  btop: " "
+  bun: "󰝄 "
+  docker: "󰡨 "
+  fish: ""
+  fx: "󰬍"
+  nvim: ""
+  yazi: " "
