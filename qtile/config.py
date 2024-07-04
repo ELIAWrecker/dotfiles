@@ -21,7 +21,7 @@ def minimize_all(qtile):
 
 # Key Bindings
 mod = "mod4"
-terminal = "alacritty"
+terminal = "wezterm"
 keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -61,7 +61,7 @@ groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
 #group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
-group_labels = ["ALACRITY", "BRAVE", "BURP", "FIREFOX", "SPOTIFY", "DISCORD", "VPN", "VID", "GFX",]
+group_labels = ["ALACRITY", "BRAVE", "BURP", "FIREFOX", "SPOTIFY", "DIS", "VPN", "NVIM", "IDK",]
 #group_labels = ["", "", "", "", "", "", "", "", "",]
 
 group_layouts = ["monadtall", "monadtall", "tile", "tile", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
