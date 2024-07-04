@@ -1,0 +1,78 @@
+2024-07-04 06:54:13.603 [info] Getting Manifest... esbenp.prettier-vscode
+2024-07-04 06:54:14.015 [info] Installing extension: esbenp.prettier-vscode {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json","path":"/home/elia/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-03T20:40:42.797Z"}}
+2024-07-04 06:54:16.502 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-amd.js
+- /usr/lib/code/out/bootstrap-fork.js
+2024-07-04 06:54:16.502 [info] Extension signature verification is not done: esbenp.prettier-vscode
+2024-07-04 06:54:16.588 [info] Extracted extension to file:///home/elia/.vscode-oss/extensions/esbenp.prettier-vscode-10.4.0-universal: esbenp.prettier-vscode
+2024-07-04 06:54:16.594 [info] Renamed to /home/elia/.vscode-oss/extensions/esbenp.prettier-vscode-10.4.0-universal
+2024-07-04 06:54:16.602 [info] Extension installed successfully: esbenp.prettier-vscode vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json
+2024-07-04 06:54:16.679 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp'
+    at h.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-07-04 06:54:25.269 [info] Getting Manifest... jdinhlife.gruvbox
+2024-07-04 06:54:25.580 [info] Installing extension: jdinhlife.gruvbox {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json","path":"/home/elia/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-03T20:40:42.797Z"}}
+2024-07-04 06:54:28.187 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-amd.js
+- /usr/lib/code/out/bootstrap-fork.js
+2024-07-04 06:54:28.187 [info] Extension signature verification is not done: jdinhlife.gruvbox
+2024-07-04 06:54:28.219 [info] Extracted extension to file:///home/elia/.vscode-oss/extensions/jdinhlife.gruvbox-1.19.0-universal: jdinhlife.gruvbox
+2024-07-04 06:54:28.221 [info] Renamed to /home/elia/.vscode-oss/extensions/jdinhlife.gruvbox-1.19.0-universal
+2024-07-04 06:54:28.232 [info] Extension installed successfully: jdinhlife.gruvbox vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json
+2024-07-04 06:54:28.302 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp'
+    at h.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-07-04 06:57:11.090 [info] Getting Manifest... mohammadbaqer.better-folding
+2024-07-04 06:57:11.573 [info] Installing extension: mohammadbaqer.better-folding {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json","path":"/home/elia/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-03T20:40:42.797Z"}}
+2024-07-04 06:57:13.332 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-amd.js
+- /usr/lib/code/out/bootstrap-fork.js
+2024-07-04 06:57:13.333 [info] Extension signature verification is not done: mohammadbaqer.better-folding
+2024-07-04 06:57:13.381 [info] Extracted extension to file:///home/elia/.vscode-oss/extensions/mohammadbaqer.better-folding-0.2.3-universal: mohammadbaqer.better-folding
+2024-07-04 06:57:13.383 [info] Renamed to /home/elia/.vscode-oss/extensions/mohammadbaqer.better-folding-0.2.3-universal
+2024-07-04 06:57:13.390 [info] Extension installed successfully: mohammadbaqer.better-folding vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json
+2024-07-04 06:57:13.464 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp'
+    at h.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-07-04 06:57:15.717 [info] Uninstalling extension from the profile: mohammadbaqer.better-folding@0.2.3 vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json
+2024-07-04 06:57:15.742 [info] Marked extension as uninstalled mohammadbaqer.better-folding-0.2.3-universal
+2024-07-04 06:57:15.808 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp'
+    at h.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-07-04 06:57:16.027 [info] Successfully uninstalled extension from the profile mohammadbaqer.better-folding@0.2.3 vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json
+2024-07-04 06:57:28.909 [info] Getting Manifest... leodevbro.blockman
+2024-07-04 06:57:29.909 [info] Installing extension: leodevbro.blockman {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json","path":"/home/elia/.vscode-oss/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-03T20:40:42.797Z"}}
+2024-07-04 06:57:34.967 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-amd.js
+- /usr/lib/code/out/bootstrap-fork.js
+2024-07-04 06:57:34.967 [info] Extension signature verification is not done: leodevbro.blockman
+2024-07-04 06:57:35.483 [info] Extracted extension to file:///home/elia/.vscode-oss/extensions/leodevbro.blockman-1.7.7-universal: leodevbro.blockman
+2024-07-04 06:57:35.494 [info] Renamed to /home/elia/.vscode-oss/extensions/leodevbro.blockman-1.7.7-universal
+2024-07-04 06:57:35.506 [info] Extension installed successfully: leodevbro.blockman vscode-userdata:/home/elia/.vscode-oss/extensions/extensions.json
+2024-07-04 06:57:35.578 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/elia/.vscode-oss/extensions/extensions.json.vsctmp'
+    at h.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)

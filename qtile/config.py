@@ -61,7 +61,7 @@ groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
 #group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
-group_labels = ["ALACRITY", "BRAVE", "BURP", "FIREFOX", "SPOTIFY", "DIS", "VPN", "NVIM", "IDK",]
+group_labels = ["TERM", "BRAVE", "BURP", "FIREFOX", "SPOTIFY", "DIS", "VPN", "NOTE", "IDK",]
 #group_labels = ["", "", "", "", "", "", "", "", "",]
 
 group_layouts = ["monadtall", "monadtall", "tile", "tile", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
@@ -154,6 +154,8 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 screens = [
     Screen(
+        wallpaper='/home/elia/ARCHIVE/wallpapers/archkali.png',
+        wallpaper_mode='stretch',
         bottom=bar.Bar(
             [
                 widget.GroupBox(
