@@ -1,6 +1,0 @@
-2024-07-04 06:53:34.273 [info] Started local extension host with pid 17331.
-2024-07-04 06:53:38.948 [info] [perf] Render performance baseline is 26ms
-2024-07-04 06:57:17.806 [info] Started local extension host with pid 17572.
-2024-07-04 06:57:35.681 [error] [Extension Host] (node:17572) Warning: Accessing non-existent property 'INVALID_ALT_NUMBER' of module exports inside circular dependency
-(Use `exe --trace-warnings ...` to show where the warning was created)
-2024-07-04 06:57:35.682 [error] [Extension Host] (node:17572) Warning: Accessing non-existent property 'INVALID_ALT_NUMBER' of module exports inside circular dependency
