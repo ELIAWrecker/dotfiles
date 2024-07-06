@@ -23,7 +23,7 @@ import subprocess
 
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄ █▀
 # █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀ ▄█
@@ -67,15 +67,14 @@ keys = [
 
 # C U S T O M
 
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
-    Key([], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc='Volume Mute'),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc='playerctl'),
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc='playerctl'),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc='playerctl'),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 10%+"), desc='brightness UP'),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness Down'),
-    Key([mod],"e", lazy.spawn("thunar"), desc='file manager'),
+    Key([], "F3", lazy.spawn("pactl set-sink-volume 1 +5%"), desc='Volume Up'),
+    Key([], "F2", lazy.spawn("pactl set-sink-volume 1 -5%"), desc='volume down'),
+    Key([], "F1", lazy.spawn("pulsemixer --toggle-mute"), desc='Volume Mute'),
+    Key([], "F6", lazy.spawn("playerctl play-pause --player=spotify"), desc='playerctl'),
+    Key([], "F7", lazy.spawn("playerctl previous"), desc='playerctl'),
+    Key([], "F8", lazy.spawn("playerctl next"), desc='playerctl'),
+    Key([], "F4", lazy.spawn("brightnessctl s 10%+"), desc='brightness UP'),
+    Key([], "F5", lazy.spawn("brightnessctl s 10%-"), desc='brightness Down'),
 	Key([mod], "h", lazy.spawn("roficlip"), desc='clipboard'),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc='Screenshot'),
 ]
@@ -306,6 +305,13 @@ screens = [
                     text=' ',
                     background='#282738',
                 ),
+                
+                widget.Volume(
+                    background = '#282738',
+                    foreground = '#CAA9E0',
+                    emoji=True,
+                    font = 'JetBrainsMono NF',
+                ),
 
 
                 widget.Image(
@@ -335,26 +341,19 @@ screens = [
                     # background='#353446',
                 # ),
 
-
-                widget.Image(
-                    filename='~/.config/qtile/Assets/Misc/ram.png',
-                    background='#353446',
-                ),
-
-
                 widget.Spacer(
-                    length=-7,
+                    length=-3,
                     background='#353446',
                 ),
 
 
-                widget.Memory(
+                widget.Pomodoro(
                     background='#353446',
-                    format='{MemUsed: .0f}{mm}',
-                    foreground='#CAA9E0',
+                    color_inactive='#CAA9E0',
+                    color_active='#CAA9E0',
+                    color_break='#CAA9E0',
                     font="JetBrains Mono Bold",
                     fontsize=13,
-                    update_interval=5,
                 ),
 
 
